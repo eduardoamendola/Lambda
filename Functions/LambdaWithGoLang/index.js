@@ -1,11 +1,13 @@
-var exec = require('child_process').exec;
+var child_process = require('child_process');
 
 exports.handler = function(event, context) {
-    console.log('Received event:', JSON.stringify(event, null, 2));
-    
-    //Take the Python command from an event arg.
-    exec('go run "' + event.GoCode + '"', function(error, stdout) {
-        console.log('Go returned: ' + stdout + '.');
-        context.done(error, stdout);
-    });
-};
+  var proc = child_process.spawn('./hello-world', [ JSON.stringify(event) ], { stdio: 'inherit' });
+
+  proc.on('close', function(code) {
+    if(code !== 0) {
+      return context.done(new Error("Process exited with non-zero status code"));
+    }
+
+    context.done(null);
+  });
+}
