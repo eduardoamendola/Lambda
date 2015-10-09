@@ -8,7 +8,8 @@ Collection of codes and docs related to AWS Lambda during my studies
 
 ### Features
 
-* Runs oficially in Node.Js and Java 8, although there are workarounds
+* Runs oficially in Node.Js, Java 8 and Python 2.7, although there are workarounds
+* You can schedule function executions, like cronjob
 
 ### Limitations
 
@@ -17,7 +18,4 @@ Collection of codes and docs related to AWS Lambda during my studies
 ## Tools
 
 ## Documentation
-
-* Using Python in an AWS Lambda function: https://aws.amazon.com/blogs/compute/using-python-in-an-aws-lambda-function/
-
 
